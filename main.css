@@ -6,12 +6,18 @@
     width: 100%;
     height: 50vh;
     background-color: rgba(52, 152, 219,0.2);
+    position: relative;
+    overflow: hidden;
 }
 .road-top{
     width: 100%;
     height: 40vh;
     background-color: rgba(52, 73, 94,1.0);
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
 }
 .road-bottom{
     width: 100%;
@@ -20,12 +26,17 @@
 }
 /*=================================*/
 .car-wrapper{
+    width: 100%;
+    position: absolute;
+    /*transform: rotateY(180deg);*/
+    top: 0;
+}
+.car-wrap{
+    animation: leftToRight 10s infinite linear;
+    transform-origin: center;
     width: 200px;
     border: 1px solid red;
     height: 100px;
-    position: relative;
-    animation: leftToRight 10s infinite linear;
-
 }
 .car{
     width: 100%;
@@ -46,7 +57,45 @@
 .wheel-2{
     right: 32px;
 }
+
+.m1{
+    position: absolute;
+    width: 50%;
+    bottom: 0;
+}
+.m2{
+    position: absolute;
+    width: 50%;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+.cloud-1{
+    width: 150px;
+    position: absolute;
+    right: -150px;
+    animation: cloud 10s linear infinite;
+}
+.cloud-2{
+    width: 150px;
+    position: absolute;
+    right: -150px;
+    top: 150px;
+    animation: cloud 20s linear infinite;
+}
+.line{
+    width: 100%;
+    border: 5px dashed white;
+}
 /*=================================*/
+@keyframes cloud {
+    from{
+        right: -150px;
+    }
+    to{
+        right: 1600px;
+    }
+}
 @keyframes forwardWheel{
     from{
         transform: rotate(0) ;
@@ -62,11 +111,11 @@
 
     }
     50%{
-      left:0;
+        left:0;
     }
+
     100%{
        left: calc(100% - 100px);
-        transform: scaleX(-1);
     }
 }
 /*=================================*/
